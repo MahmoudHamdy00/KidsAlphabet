@@ -115,8 +115,9 @@ function changeStyle(e) {
   currentStyle = getSelectedStyle();
   var src = image.getAttribute("src");
   if (src == null) return;
-  const imgName = currentLetter.textContent;
-  showPic(imgName);
+  const letterName = currentLetter.textContent;
+  showPic(letterName);
+  playSound(letterName);
 }
 function getSelectedStyle() {
   for (var i = 0; i < styles.children.length; ++i) {
