@@ -94,12 +94,12 @@ function changeLetter(e) {
 }
 function playSound(letterName) {
   if (currentStyle == "style1")
-    audio.setAttribute("src", `pics/style1/sound/${letterName}.mp3`);
+    audio.setAttribute("src", `resources/style1/sounds/${letterName}.mp3`);
 }
 function showPic(imgName) {
   // console.log("show " + letter);
   try {
-    var src = `pics/${currentStyle}/${imgName}.png`;
+    var src = `resources/${currentStyle}/pictures/${imgName}.png`;
     changeImageSource(src);
   } catch (err) {
     console.error(err);
