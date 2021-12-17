@@ -9,6 +9,7 @@ var currentStyle = getSelectedStyle();
 var currentLetter = null;
 var defaultLetterColor = "#efefef";
 var selectedLetterColor = "darkgray";
+var audio = document.getElementById("letterSound");
 window.addEventListener("load", (e) => saveEvent(e));
 window.addEventListener("unload", (e) => saveEvent(e));
 
@@ -89,6 +90,11 @@ function changeLetter(e) {
   letterBtn.style.backgroundColor = selectedLetterColor;
   currentLetter = letterBtn;
   showPic(letterName);
+  playSound(letterName);
+}
+function playSound(letterName) {
+  if (currentStyle == "style1")
+    audio.setAttribute("src", `pics/style1/sound/${letterName}.mp3`);
 }
 function showPic(imgName) {
   // console.log("show " + letter);
