@@ -48,6 +48,7 @@ button:hover {
 }
 #infoBtn:hover {
   font-style: normal;
+  cursor: pointer;
 }
 #infoDetails {
   transition-duration: 3s;

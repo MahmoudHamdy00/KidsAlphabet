@@ -2,8 +2,10 @@ var image = document.getElementsByTagName("img")[0];
 var generateBtn = document.getElementById("generate");
 var letters = document.getElementById("letters");
 var numOfLetters = document.getElementById("numOfLetters");
+var info = document.getElementById("info");
 var infoBtn = document.getElementById("infoBtn");
 var infoDetails = document.getElementById("infoDetails");
+var isInfoDetailsVisible = false;
 var styles = document.getElementById("style");
 var currentStyle = getSelectedStyle();
 var currentLetter = null;
@@ -29,9 +31,9 @@ letters.addEventListener("click", (e) => {
   saveEvent(e);
 });
 
-infoBtn.addEventListener("mouseover", showInfoDetails);
+infoBtn.addEventListener("mouseenter", showInfoDetails);
 infoBtn.addEventListener("mouseleave", hideInfoDetails);
-
+infoBtn.addEventListener("click", toggeleInfoDetails);
 styles.addEventListener("change", (e) => {
   changeStyle(e);
 });
@@ -153,15 +155,19 @@ function eventToSave(e) {
   }
 }
 
-function toggeleInfo() {
-  var currentState = infoDetails.style.display;
-  if (currentState == "block") infoDetails.style.display = "none";
-  else infoDetails.style.display = "block";
+function toggeleInfoDetails() {
+  isInfoDetailsVisible = !isInfoDetailsVisible;
+  if (isInfoDetailsVisible) hideInfoDetails();
+  else showInfoDetails();
 }
 function showInfoDetails() {
   infoDetails.style.display = "block";
 }
 function hideInfoDetails() {
+  if (isInfoDetailsVisible) return;
   infoDetails.style.display = "none";
+}
+async function sleep(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
 }
 generateBtn.click();
