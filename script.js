@@ -162,10 +162,12 @@ function toggeleInfoDetails() {
 }
 function showInfoDetails() {
   infoDetails.style.display = "block";
+  infoBtn.style.backgroundColor = "gray";
 }
 function hideInfoDetails() {
   if (isInfoDetailsVisible) return;
   infoDetails.style.display = "none";
+  infoBtn.style.backgroundColor = "";
 }
 async function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
